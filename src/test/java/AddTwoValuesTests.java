@@ -8,10 +8,9 @@ import static junit.framework.TestCase.assertEquals;
  * Created by kate on 1/12/16.
  */
 
-
 public class AddTwoValuesTests {
 
-    Calculator calc = new Calculator();
+    private Calculator calc = new Calculator();
 
     @Before
     public void consolePrint() {
@@ -44,12 +43,13 @@ public class AddTwoValuesTests {
 
     @Test
     public void testDivisionNegativeValues() {
-       assertEquals("10 / 0 must be: Sorry Divission By Zero Is Not Possible", 0, calc.division(10, 5));
+        String message = "";
         try {
             calc.division(10, 0);
         } catch (Exception e) {
-            System.out.println("Sorry Divission By Zero Is Not Possible");
+            message = e.getMessage();
         }
+        assertEquals("10 / 0 must be: Sorry Divission By Zero Is Not Possible", "/ by zero", message);
     }
 
     @Test
@@ -62,20 +62,21 @@ public class AddTwoValuesTests {
 
     @Test
     public void testSquareRootPositiveValues() {
-        assertEquals("Square Root 125 must be 15", 15, calc.squareRoot(125));  }
+        assertEquals("Square root 125 must be 15", 15, calc.squareRoot(125));  }
 
     @Test
     public void testSquareRootNegativeValues() {
+
         assertEquals("Square Root -125 must be NaN", 0, calc.squareRoot(-125)); }
+
+    //TODO
+    //add new tests for add() method
 
     @Test
     public void testPowTwoPositiveValues() {  assertEquals("10 ^2 5 must be 100", 100, calc.powTwo(10));  }
 
     @Test
     public void testPowTwoNegativeValues() { assertEquals("-20 ^2 must be 100", 400, calc.powTwo(-20)); }
-
-    //TODO
-    //add new tests for add() method
 
     //TODO
     //add tests for new methods
@@ -85,4 +86,6 @@ public class AddTwoValuesTests {
         System.out.println("Tests finished!!!");
 
     }
+
+
 }
