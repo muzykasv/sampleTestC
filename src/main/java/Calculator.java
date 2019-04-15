@@ -22,12 +22,12 @@ public class Calculator {
         return a / b;
     }
 
-    public double substraction(int a, int b) {
+    public double subtraction(int a, int b) {
 
         return a - b;
     }
 
-    public double squareRoot(int a) {
+    public double squareRoot(double a) {
 
         return Math.sqrt(a);
     }
