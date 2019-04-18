@@ -13,8 +13,7 @@ public class AddTwoValuesTests {
     private Calculator calc = new Calculator();
 
     @Before
-    public void consolePrint() {
-        System.out.println("Tests started!!! ");
+    public void consolePrint() { System.out.println("Tests started!!! ");
     }
 
     @Test
@@ -54,29 +53,36 @@ public class AddTwoValuesTests {
 
     @Test
     public void testSubtractionPositiveValues() {
-        assertEquals("100 - 50 must be 50", 50, calc.subtraction(100, 50));  }
+        assertEquals ("100 - 50 must be 50", 50.0, calc.subtraction(100, 50));  }
 
     @Test
-    public void testSubtractionTwoNegativeValues() {
-        assertEquals("10 - 15 must be -5", -5, calc.subtraction(10, -15)); }
+    public void testSubtractionNegativeValues() {
+        assertEquals("10 - 40 must be -30", -30, calc.subtraction(10, -40)); }
 
     @Test
     public void testSquareRootPositiveValues() {
-        assertEquals("Square root 125 must be 15", 15, calc.squareRoot(125));  }
+        assertEquals("Square root 225 must be 15.0", 15.0, calc.squareRoot(225));  }
 
     @Test
     public void testSquareRootNegativeValues() {
 
-        assertEquals("Square Root -125 must be NaN", 0, calc.squareRoot(-125)); }
+        String message = "";
+        try {
+            calc.squareRoot(-225);
+        } catch (Exception e) {
+            message = e.getMessage();
+        }
+        assertEquals("Square Root -225 must be: NaN", "NaN", message);
+    }
 
     //TODO
     //add new tests for add() method
 
     @Test
-    public void testPowTwoPositiveValues() {  assertEquals("10 ^2 5 must be 100", 100, calc.powTwo(10));  }
+    public void testPowTwoPositiveValues() {  assertEquals("10 ^2 must be 100.0", 100.0, calc.powTwo(10));  }
 
     @Test
-    public void testPowTwoNegativeValues() { assertEquals("-20 ^2 must be 100", 400, calc.powTwo(-20)); }
+    public void testPowTwoNegativeValues() { assertEquals("-20 ^2 must be 400.0", 400.0, calc.powTwo(-20)); }
 
     //TODO
     //add tests for new methods
