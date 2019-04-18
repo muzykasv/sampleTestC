@@ -17,7 +17,7 @@ public class Calculator {
         return a * b;
     }
 
-    public double division(int a, int b) {
+    public int division(int a, int b) {
 
         return a / b;
     }

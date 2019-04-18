@@ -2,6 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static jdk.nashorn.internal.objects.NativeNumber.NaN;
 import static junit.framework.TestCase.assertEquals;
 
 /**
@@ -57,7 +58,7 @@ public class AddTwoValuesTests {
 
     @Test
     public void testSubtractionNegativeValues() {
-        assertEquals("10 - 40 must be -30", -30, calc.subtraction(10, -40)); }
+        assertEquals("10 - 40 must be 50", 50.0, calc.subtraction(10, -40)); }
 
     @Test
     public void testSquareRootPositiveValues() {
@@ -65,14 +66,7 @@ public class AddTwoValuesTests {
 
     @Test
     public void testSquareRootNegativeValues() {
-
-        String message = "";
-        try {
-            calc.squareRoot(-225);
-        } catch (Exception e) {
-            message = e.getMessage();
-        }
-        assertEquals("Square Root -225 must be: NaN", "NaN", message);
+        assertEquals("Square Root -225 must be: NaN", NaN, calc.squareRoot(-225));
     }
 
     //TODO
